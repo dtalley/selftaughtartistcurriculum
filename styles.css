@@ -1,0 +1,316 @@
+@font-face {
+  font-family: merriweather;
+  font-weight: 300;
+  src: url(fonts/Merriweather-Light.ttf);
+}
+
+@font-face {
+  font-family: merriweather;
+  font-weight: 300;
+  font-style: italic;
+  src: url(fonts/Merriweather-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: merriweather;
+  font-weight: normal;
+  font-weight: 500;
+  src: url(fonts/Merriweather-Regular.ttf);
+}
+
+@font-face {
+  font-family: merriweather;
+  font-weight: normal;
+  font-weight: 500;
+  font-style: italic;
+  src: url(fonts/Merriweather-Italic.ttf);
+}
+
+@font-face {
+  font-family: merriweather;
+  font-weight: bold;
+  font-weight: 700;
+  src: url(fonts/Merriweather-Bold.ttf);
+}
+
+@font-face {
+  font-family: merriweather;
+  font-weight: bold;
+  font-weight: 700;
+  font-style: italic;
+  src: url(fonts/Merriweather-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: merriweather;
+  font-weight: 900;
+  src: url(fonts/Merriweather-Black.ttf);
+}
+
+@font-face {
+  font-family: merriweather;
+  font-weight: 900;
+  font-style: italic;
+  src: url(fonts/Merriweather-BlackItalic.ttf);
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: merriweather;
+	counter-reset: term-counter;
+	font-size: 13px;
+}
+
+term {
+	display: block;
+	width: 100%;
+	counter-increment: term-counter;
+	z-index: 2;
+	background-color: var(--main-bg-color);
+}
+
+term {
+	--primary-color: var(--main-color);
+	--primary-item-color: var(--text-color);
+	--alternative-color: var(--text-color);
+	--alternative-item-color: var(--text-color);
+	--supplemental-color: var(--text-color);
+	--supplemental-item-color: var(--text-color);
+	--resources-color: var(--text-color);
+	--resources-item-color: var(--text-color);
+
+	--week-bg-color: var(--main-bg-color);
+	--week-color: var(--main-color);
+	--week-item-bg-color: var(--unit-bg-color);
+	--week-item-color: var(--text-color);
+
+	--challenge-bg-color: var(--title-color);
+	--challenge-color: #FFFFFF;
+
+	--text-color: #555555;
+}
+
+term:nth-child(1) {
+	--main-bg-color: #fff9ff;
+	--unit-bg-color: #FFFFFF;
+	--main-color: #de0d7d;
+
+	--title-color: #018291;
+
+	--week-bg-color: #EEEEEE;
+	
+	--week-item-bg-color: var(--unit-bg-color);
+	--week-item-color: var(--text-color);
+}
+
+term:nth-child(2) {
+	--main-bg-color: #273251;
+	--unit-bg-color: #374168;
+	--main-color: #7cd4ff;
+	--text-color: #FFFFFF;
+
+	--title-color: #8a97c7;
+
+	--challenge-color: var(--text-color);
+}
+
+term:nth-child(3) {
+	--main-bg-color: #fff2fb;
+	--unit-bg-color: #FFFFFF;
+	--main-color: #55bbae;
+	--text-color: #555555;
+
+	--title-color: #a4927e;
+
+	--week-bg-color: #EEEEEE;
+}
+
+term > units {
+	display: block;
+	max-width: 800px;
+	margin: 0px auto;
+	padding: 20px;
+	counter-reset: unit-counter;
+	z-index: 2;
+	position: relative;
+	background-color: var(--main-bg-color);
+}
+
+term > units::before {
+	display: block;
+	content: counter(term-counter);
+	transform:translateX(-100%);
+	font-size: 200px;
+	font-weight: 900;
+	position: absolute;
+	top: 0;
+	left: 50px;
+	z-index: 1;
+	color: var(--main-color);
+}
+
+term > units > unit {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	counter-increment: unit-counter;
+	padding: 20px;
+	z-index: 2;
+	position: relative;
+	background-color: var(--unit-bg-color);
+	border-radius: 10px;
+	color: var(--text-color);
+	box-shadow: -10px 10px 10px rgba(0,0,0,.2);
+}
+
+term > units > unit:not(:first-child) {
+	margin-top: 20px;
+}
+
+term > units > unit > title {
+	display: block;
+	font-size: 28px;
+	font-weight: 300;
+	margin-bottom: 10px;
+	flex-basis: 100%;
+	color: var(--title-color);
+}
+
+term > units > unit > material {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex-basis: 100%;
+	font-size: 13px;
+}
+
+term > units > unit > material > primary {
+	display: block;
+	margin-bottom: 10px;
+	flex-basis: 100%;
+}
+
+term > units > unit > material > primary::before {
+	content: "Primary Material";
+	font-weight: bold;
+	font-size: 16px;
+	color: var(--primary-color);
+}
+
+term > units > unit > material > primary > item {
+	display: block;
+	color: var(--primary-item-color);
+}
+
+term > units > unit > material > alternative {
+	display: block;
+	flex-basis: 50%;
+	padding-right: 10px;
+	box-sizing: border-box;
+	border-right: 1px solid var(--title-color);
+}
+
+term > units > unit > material > alternative::before {
+	content: "Alternative Material";
+	font-weight: bold;
+	font-size: 16px;
+	color: var(--alternative-color);
+}
+
+term > units > unit > material > alternative > item {
+	display: block;
+	color: var(--alternative-item-color);
+}
+
+term > units > unit > material > supplemental {
+	display: block;
+	flex-basis: 50%;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+
+term > units > unit > material > supplemental::before {
+	content: "Supplemental Material";
+	font-weight: bold;
+	font-size: 16px;
+	color: var(--supplemental-color);
+}
+
+term > units > unit > material > supplemental > item {
+	display: block;
+	color: var(--supplemental-item-color);
+}
+
+term > units > unit > weeks {
+	display: flex;
+	flex-direction: column;
+	counter-reset: week-counter;
+	flex-basis: 100%;
+	margin-top: 30px;
+}
+
+term > units > unit > weeks > week {
+	counter-increment: week-counter;
+	margin-bottom: 20px;
+	background-color: var(--week-bg-color);
+	border-radius: 5px;
+	padding: 10px;
+}
+
+term > units > unit > weeks > week::before {
+	display: block;
+	content: "Week "counter(week-counter);
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 10px;
+	color: var(--week-color);
+}
+
+term > units > unit > weeks > week > item {
+	display: block;
+	padding: 10px;
+	background-color: var(--week-item-bg-color);
+	color: var(--week-item-color);
+	border-radius: 2px;
+}
+
+term > units > unit > weeks > week > *:not(:first-child) {
+	margin-top: 4px;
+}
+
+term > units > unit > weeks > week > challenge {
+	display: block;
+	padding: 10px;
+	background-color: var(--challenge-bg-color);
+	color: var(--challenge-color);
+	border-radius: 2px;
+}
+
+term > units > unit > weeks > week > challenge::before {
+	content: "Challenge:    ";
+	font-weight: bold;
+}
+
+term > units > unit > weeks > week > challenge > note {
+	display: block;
+}
+
+term > units > unit > resources {
+	display: block;
+	flex-basis: 100%;
+	font-size: 13px;
+}
+
+term > units > unit > resources::before {
+	content: "Resources";
+	font-weight: bold;
+	display: block;
+	font-size: 16px;
+	color: var(--resources-color);
+}
+
+term > units > unit > resources > item {
+	display: block;
+	color: var(--resources-item-color);
+}
