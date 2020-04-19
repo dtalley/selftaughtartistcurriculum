@@ -1,57 +1,62 @@
 @font-face {
-  font-family: merriweather;
-  font-weight: 300;
-  src: url(fonts/Merriweather-Light.ttf);
+	font-family: merriweather;
+	font-weight: 300;
+	src: url(fonts/Merriweather-Light.ttf);
 }
 
 @font-face {
-  font-family: merriweather;
-  font-weight: 300;
-  font-style: italic;
-  src: url(fonts/Merriweather-LightItalic.ttf);
+	font-family: merriweather;
+	font-weight: 300;
+	font-style: italic;
+	src: url(fonts/Merriweather-LightItalic.ttf);
 }
 
 @font-face {
-  font-family: merriweather;
-  font-weight: normal;
-  font-weight: 500;
-  src: url(fonts/Merriweather-Regular.ttf);
+	font-family: merriweather;
+	font-weight: normal;
+	font-weight: 500;
+	src: url(fonts/Merriweather-Regular.ttf);
 }
 
 @font-face {
-  font-family: merriweather;
-  font-weight: normal;
-  font-weight: 500;
-  font-style: italic;
-  src: url(fonts/Merriweather-Italic.ttf);
+	font-family: merriweather;
+	font-weight: normal;
+	font-weight: 500;
+	font-style: italic;
+	src: url(fonts/Merriweather-Italic.ttf);
 }
 
 @font-face {
-  font-family: merriweather;
-  font-weight: bold;
-  font-weight: 700;
-  src: url(fonts/Merriweather-Bold.ttf);
+	font-family: merriweather;
+	font-weight: bold;
+	font-weight: 700;
+	src: url(fonts/Merriweather-Bold.ttf);
 }
 
 @font-face {
-  font-family: merriweather;
-  font-weight: bold;
-  font-weight: 700;
-  font-style: italic;
-  src: url(fonts/Merriweather-BoldItalic.ttf);
+	font-family: merriweather;
+	font-weight: bold;
+	font-weight: 700;
+	font-style: italic;
+	src: url(fonts/Merriweather-BoldItalic.ttf);
 }
 
 @font-face {
-  font-family: merriweather;
-  font-weight: 900;
-  src: url(fonts/Merriweather-Black.ttf);
+	font-family: merriweather;
+	font-weight: 900;
+	src: url(fonts/Merriweather-Black.ttf);
 }
 
 @font-face {
-  font-family: merriweather;
-  font-weight: 900;
-  font-style: italic;
-  src: url(fonts/Merriweather-BlackItalic.ttf);
+	font-family: merriweather;
+	font-weight: 900;
+	font-style: italic;
+	src: url(fonts/Merriweather-BlackItalic.ttf);
+}
+
+@font-face {
+	font-family: fontawesome;
+	src: url(fonts/fa-solid-900.ttf);
 }
 
 html, body {
@@ -71,7 +76,7 @@ term {
 }
 
 term {
-	--primary-color: var(--main-color);
+	--primary-color: var(--text-color);
 	--primary-item-color: var(--text-color);
 	--alternative-color: var(--text-color);
 	--alternative-item-color: var(--text-color);
@@ -81,7 +86,7 @@ term {
 	--resources-item-color: var(--text-color);
 
 	--week-bg-color: var(--main-bg-color);
-	--week-color: var(--main-color);
+	--week-color: var(--title-color);
 	--week-item-bg-color: var(--unit-bg-color);
 	--week-item-color: var(--text-color);
 
@@ -89,6 +94,10 @@ term {
 	--challenge-color: #FFFFFF;
 
 	--text-color: #555555;
+
+	--item-link-color: var(--main-color);
+	--item-link-hover-color: var(--text-color);
+	--unit-color: var(--main-color);
 }
 
 term:nth-child(1) {
@@ -126,6 +135,64 @@ term:nth-child(3) {
 	--week-bg-color: #EEEEEE;
 }
 
+term:nth-child(4) {
+	--main-bg-color: #2e282a;
+	--unit-bg-color: #544747;
+	--main-color: #f68a63;
+	--text-color: #DDDDDD;
+
+	--title-color: #ac8678;
+}
+
+term:nth-child(5) {
+	--main-bg-color: #ede7f4;
+	--unit-bg-color: #ffffff;
+	--main-color: #758ee2;
+	--text-color: #555555;
+
+	--title-color: #9e5753;
+}
+
+term:nth-child(6) {
+	--main-bg-color: #302125;
+	--unit-bg-color: #44363a;
+	--main-color: #dd5b7f;
+	--text-color: #FFFFFF;
+
+	--title-color: #ac788b;
+}
+
+term:nth-child(7) {
+	--main-bg-color: #f7f8ea;
+	--unit-bg-color: #FFFFFF;
+	--main-color: #c0c662;
+	--text-color: #555555;
+
+	--title-color: #6d213c;
+}
+
+term:nth-child(8) {
+	--main-bg-color: #270d3b;
+	--unit-bg-color: #332b4a;
+	--main-color: #9687cc;
+	--text-color: #FFFFFF;
+
+	--title-color: #ffd178;
+
+	--week-bg-color: #1e1723;
+
+	--challenge-color: #555555;
+}
+
+term:nth-child(9) {
+	--main-bg-color: #f0f3ff;
+	--unit-bg-color: #FFFFFF;
+	--main-color: #6b7fd7;
+	--text-color: #555555;
+
+	--title-color: #e2827c;
+}
+
 term > units {
 	display: block;
 	max-width: 800px;
@@ -139,7 +206,7 @@ term > units {
 
 term > units::before {
 	display: block;
-	content: counter(term-counter);
+	content: "Term "counter(term-counter);
 	transform:translateX(-100%);
 	font-size: 200px;
 	font-weight: 900;
@@ -177,6 +244,27 @@ term > units > unit > title {
 	color: var(--title-color);
 }
 
+term > units > unit > title > a {
+	float: right;
+	color: var(--unit-color);
+	font-size: 16px;
+	font-weight: 900;
+	text-decoration: none;
+}
+
+term > units > unit > title > a:hover {
+	color: var(--text-color);
+}
+
+term > units > unit > title > a::before {
+	content: "Term "counter(term-counter)", Unit "counter(unit-counter);
+}
+
+term > units > unit > title > a::after {
+	font-family: fontawesome;
+	content: " \f35b";
+}
+
 term > units > unit > material {
 	display: flex;
 	flex-direction: row;
@@ -194,7 +282,7 @@ term > units > unit > material > primary {
 term > units > unit > material > primary::before {
 	content: "Primary Material";
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 20px;
 	color: var(--primary-color);
 }
 
@@ -215,7 +303,7 @@ term > units > unit > material > alternative::before {
 	content: "Alternative Material";
 	font-weight: bold;
 	font-size: 16px;
-	color: var(--alternative-color);
+	color: var(--title-color);
 }
 
 term > units > unit > material > alternative > item {
@@ -234,7 +322,7 @@ term > units > unit > material > supplemental::before {
 	content: "Supplemental Material";
 	font-weight: bold;
 	font-size: 16px;
-	color: var(--supplemental-color);
+	color: var(--title-color);
 }
 
 term > units > unit > material > supplemental > item {
@@ -313,4 +401,19 @@ term > units > unit > resources::before {
 term > units > unit > resources > item {
 	display: block;
 	color: var(--resources-item-color);
+}
+
+item > a, item > a:visited {
+	color: var(--item-link-color);
+	text-decoration: none;
+}
+
+item > a:hover, item > a:active {
+	color: var(--item-link-hover-color);
+}
+
+item > a::after {
+	font-family: fontawesome;
+	content: '\f0c1';
+	padding-left: 5px;
 }

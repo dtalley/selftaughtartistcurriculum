@@ -10,4 +10,10 @@ document.addEventListener("DOMContentLoaded", function(){
 			item.parentNode.replaceChild(linkTpl, item)
 		}
 	});
+
+	let units = document.querySelectorAll("unit > title")
+	units.forEach(function(unit){
+		let linkTpl = document.getElementById("unit-link-template").content.cloneNode(true)
+		unit.appendChild(linkTpl)
+	})
 });
