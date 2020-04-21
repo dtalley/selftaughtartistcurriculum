@@ -197,6 +197,13 @@ html, body {
 	--title-color: #e2827c;
 }
 
+header {
+	display: block;
+	height: 500px;
+	background: linear-gradient(140deg, rgba(208,24,159,1) 30%, rgba(145,6,125,1) 70%);
+	box-shadow: inset 0px -10px 10px rgba(0,0,0,.2);
+}
+
 index {
 	display: block;
 }
@@ -204,12 +211,15 @@ index {
 index > blocks {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: 100px 100px 100px;
-	max-width: 800px;
-	column-gap: 30px;
-	row-gap: 30px;
-	margin: 30px auto;
+	grid-template-rows: repeat(3, 120px);
+	min-width: 800px;
+	max-width: 1200px;
+	column-gap: 50px;
+	row-gap: 20px;
+	margin: 0px auto;
 	counter-reset: term-counter;
+	box-sizing: border-box;
+	padding: 40px;
 }
 
 index > blocks > block {
@@ -221,15 +231,14 @@ index > blocks > block {
 index > blocks > block::before {
 	display: block;
 	content: counter(term-counter);
-	transform:translate(0, -50%);
+	transform:translate(-100%, -50%);
 	font-size: 100px;
 	font-weight: 900;
 	position: absolute;
 	top: 50px;
-	right: 0px;
+	left: 20px;
 	z-index: 1;
 	color: var(--main-color);
-	opacity: .1;
 }
 
 index > blocks > block > units {
@@ -237,20 +246,30 @@ index > blocks > block > units {
 	flex-direction: column;
 	background-color: #FFFFFF;
 	border-radius: 5px;
-	height: 100px;
+	height: 120px;
   	justify-content: center;
+  	position: relative;
   	z-index: 2;
-  	padding-left: 10px;
+  	padding-left: 20px;
   	box-shadow: -5px 5px 5px rgba(0,0,0,.1);
   	font-size: 14px;
   	border-left: 2px solid var(--main-color);
   	border-bottom: 2px solid var(--main-color);
-  	line-height: 25px;
+}
+
+index > blocks > block > units > unit:not(:first-child) {
+	margin-top: 10px;
 }
 
 index > blocks > block > units a {
 	color: var(--item-link-color);
 	text-decoration: none;
+}
+
+index > blocks > block > units a::after {
+	font-family: fontawesome;
+	content: "\f152";
+	padding-left: 7px;
 }
 
 index > blocks > block > units a:hover {
@@ -276,9 +295,11 @@ term {
 
 term > units {
 	display: block;
-	max-width: 800px;
+	min-width: 800px;
+	max-width: 1200px;
 	margin: 0px auto;
-	padding: 20px;
+	padding: 40px;
+	box-sizing: border-box;
 	counter-reset: unit-counter;
 	z-index: 2;
 	position: relative;
@@ -292,8 +313,8 @@ term > units::before {
 	font-size: 200px;
 	font-weight: 900;
 	position: absolute;
-	top: 0;
-	left: 50px;
+	top: 50px;
+	left: 70px;
 	z-index: 1;
 	color: var(--main-color);
 }
@@ -314,6 +335,8 @@ term > units > unit {
 	border-radius: 10px;
 	color: var(--text-color);
 	box-shadow: -10px 10px 10px rgba(0,0,0,.2);
+	border-top: 2px solid var(--main-color);
+	border-right: 2px solid var(--main-color);
 }
 
 term > units > unit:not(:first-child) {

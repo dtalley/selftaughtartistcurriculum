@@ -12,12 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	});
 
-	let units = document.querySelectorAll("unit > title")
-	units.forEach(function(unit){
-		let linkTpl = document.getElementById("unit-link-template").content.cloneNode(true)
-		unit.appendChild(linkTpl)
-	});
-
 	let mainTerms = document.querySelectorAll("terms")
 	let terms = mainTerms[1].querySelectorAll("term")
 	let termId = 0
@@ -39,4 +33,10 @@ document.addEventListener("DOMContentLoaded", function(){
 		})
 		termId++
 	})
+
+	let units = document.querySelectorAll("unit > title")
+	units.forEach(function(unit){
+		let linkTpl = document.getElementById("unit-link-template").content.cloneNode(true)
+		unit.appendChild(linkTpl)
+	});
 });
